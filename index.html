@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Midnight Assist Co. – Atlanta After-Hours Convenience Runner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Midnight Assist Co. – Atlanta's late-night convenience runner. We deliver essential items between 11 PM and 4 AM. Fast, safe, and discreet service." />
+  <style>
+    :root {
+      --bg: #050816;
+      --card: #0e1320;
+      --accent: #4fd1c5;
+      --accent-soft: rgba(79, 209, 197, 0.1);
+      --text: #f7fafc;
+      --muted: #a0aec0;
+      --danger: #f56565;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #1a202c 0, #050816 55%, #020309 100%);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      padding: 20px 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(5, 8, 22, 0.95);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .nav-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-pill {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0%, #81e6d9 0, #2c5282 60%, #020617 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 800;
+      color: #e6fffa;
+    }
+
+    .nav-tagline {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .call-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: linear-gradient(120deg, #4fd1c5, #63b3ed);
+      color: #0b1120;
+      font-weight: 600;
+      font-size: 0.85rem;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 0 18px rgba(79, 209, 197, 0.3);
+    }
+
+    .call-cta span.small {
+      font-size: 0.7rem;
+      opacity: 0.85;
+    }
+
+    main {
+      padding: 30px 18px 60px;
+    }
+
+    section {
+      margin-bottom: 32px;
+    }
+
+    .hero {
+      text-align: left;
+      margin-top: 10px;
+    }
+
+    .hero-title {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .hero-highlight {
+      background: linear-gradient(120deg, #4fd1c5, #fbd38d);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-sub {
+      color: var(--muted);
+      font-size: 0.98rem;
+      margin-bottom: 14px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .pill {
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      color: #e2e8f0;
+    }
+
+    .hero-card {
+      margin-top: 18px;
+      background: var(--card);
+      border-radius: 18px;
+      padding: 16px 14px;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.8);
+    }
+
+    .hero-card-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .hero-card-text {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .section-sub {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    @media (min-width: 720px) {
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+        gap: 16px;
+        align-items: center;
+      }
+
+      .grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 18px;
+      padding: 14px 14px 15px;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+    }
+
+    .card h3 {
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+    }
+
+    .card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      font-size: 0.7rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      margin-left: 4px;
+    }
+
+    .price-tag {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+
+    .price-sub {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+      gap: 6px;
+    }
+
+    .pill-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .pill-list li {
+      font-size: 0.78rem;
+      padding: 5px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(75, 85, 99, 0.6);
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .payments-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .pay-pill {
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      background: var(--accent-soft);
+      border: 1px solid rgba(79, 209, 197, 0.5);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .qr-wrap {
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    .qr-wrap img {
+      max-width: 170px;
+      width: 60%;
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: #fff;
+      padding: 8px;
+    }
+
+    .order-form {
+      display: grid;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .order-form label {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .order-form input,
+    .order-form textarea,
+    .order-form select {
+      width: 100%;
+      padding: 7px 9px;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: #020617;
+      color: var(--text);
+      font-size: 0.85rem;
+    }
+
+    .order-form textarea {
+      min-height: 70px;
+      resize: vertical;
+    }
+
+    .order-form button {
+      margin-top: 4px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(120deg, #4fd1c5, #63b3ed);
+      color: #0b1120;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .order-form button:hover {
+      opacity: 0.95;
+    }
+
+    footer {
+      border-top: 1px solid rgba(148, 163, 184, 0.2);
+      padding: 16px 18px 22px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .thanks {
+      margin-top: 6px;
+      font-size: 0.83rem;
+      color: #e2e8f0;
+    }
+
+    .review-link {
+      margin-top: 6px;
+      font-size: 0.82rem;
+    }
+
+    .highlight {
+      color: var(--accent);
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav-row">
+      <div>
+        <div class="logo">
+          <div class="logo-pill">MA</div>
+          Midnight Assist Co.
+        </div>
+        <div class="nav-tagline">Atlanta • After-Hours Convenience Runner (11 PM – 4 AM)</div>
+      </div>
+      <a class="call-cta" href="tel:14042034469">
+        <div>
+          <span class="small">Call/Text Now</span><br />
+          404-203-4469
+        </div>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <!-- HERO -->
+      <section class="hero" id="top">
+        <div>
+          <h1 class="hero-title">
+            Your <span class="hero-highlight">Midnight Lifeline</span> in Atlanta.
+          </h1>
+          <p class="hero-sub">
+            Stuck without essentials after everything’s closed? 
+            Midnight Assist Co. delivers what you need between <strong>11 PM and 4 AM</strong> – fast, safe, and discreet.
+          </p>
+          <div class="pill-row">
+            <span class="pill">OTC Medicines</span>
+            <span class="pill">Chargers & Tech</span>
+            <span class="pill">Snacks & Drinks</span>
+            <span class="pill">Feminine Products</span>
+            <span class="pill">Baby & Pet Supplies</span>
+            <span class="pill">Car Fluids & Emergency Items</span>
+          </div>
+          <p class="muted">
+            Call or text <strong>404-203-4469</strong> to place an order. 
+            <br />Thank you for choosing <strong>Midnight Assist Co.</strong>
+          </p>
+
+          <div class="hero-card">
+            <div class="hero-card-title">How it works</div>
+            <p class="hero-card-text">
+              1. Call or text your request & location.<br />
+              2. We confirm availability & estimate.<br />
+              3. You pay via Cash App, Apple Pay, or Zelle.<br />
+              4. We buy & deliver your items to your door.
+            </p>
+          </div>
+        </div>
+
+        <!-- QR / CONTACT -->
+        <div class="hero-card">
+          <div class="hero-card-title">Scan to Order</div>
+          <p class="hero-card-text">
+            Scan the code below to open our website on your phone, then tap to call or send your request.
+          </p>
+          <div class="qr-wrap">
+            <!-- Replace src with your uploaded QR code path -->
+            <img src="midnight_assist_co_qr.png" alt="Midnight Assist Co. QR Code" />
+          </div>
+          <p class="muted" style="margin-top: 6px;">
+            Save this QR code in your photos so you can reach us anytime.
+          </p>
+        </div>
+      </section>
+
+      <!-- PRICING -->
+      <section id="pricing">
+        <h2 class="section-title">Pricing & Service Zones</h2>
+        <p class="section-sub">
+          Transparent, late-night pricing for Atlanta. Rates are per trip and do not include the cost of items purchased.
+        </p>
+
+        <div class="grid grid-2">
+          <div class="card">
+            <h3>Base Delivery Fees</h3>
+            <div class="price-row">
+              <span>0–3 miles</span>
+              <span class="price-tag">$20</span>
+            </div>
+            <div class="price-row">
+              <span>3–6 miles</span>
+              <span class="price-tag">$30</span>
+            </div>
+            <div class="price-row">
+              <span>6–10 miles</span>
+              <span class="price-tag">$40</span>
+            </div>
+            <p class="price-sub">
+              Distance calculated from our active driver location to your delivery address.
+            </p>
+            <p class="muted">
+              <strong>Late Night Surcharge:</strong> +$10 flat between 12 AM and 4 AM.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Service Extras</h3>
+            <p>Item Sourcing Fee: <strong>$5 per store</strong> + <strong>$5 per item</strong>.</p>
+            <p>Rush Priority (skip the queue): <strong>+$15</strong>.</p>
+            <p>Wait Time: first 5 minutes free, then <strong>$1/min</strong>.</p>
+            <p>Cancellation after purchase begins: <strong>$15</strong>.</p>
+            <p class="muted">
+              You reimburse the exact cost of items as shown on the store receipt.
+            </p>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top: 14px;">
+          <h3>Service Areas</h3>
+          <ul class="pill-list">
+            <li>Buckhead</li>
+            <li>Midtown</li>
+            <li>Downtown</li>
+            <li>Sandy Springs</li>
+            <li>Airport Area (College Park, Hapeville, Morrow)</li>
+            <li>West Midtown</li>
+            <li>Decatur</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ESSENTIAL PRODUCTS -->
+      <section id="essentials">
+        <h2 class="section-title">Midnight Essentials We Commonly Deliver</h2>
+        <p class="section-sub">
+          Below are the types of products customers often need after hours. Availability may vary by store and location.
+        </p>
+
+        <div class="grid grid-2">
+          <div class="card">
+            <h3>OTC Medicines & Health</h3>
+            <ul class="pill-list">
+              <li>Pain relief (Tylenol, Advil, Motrin)</li>
+              <li>Cold & flu remedies</li>
+              <li>Allergy pills (antihistamines)</li>
+              <li>Antacids & stomach relief</li>
+              <li>Cough drops & throat soothers</li>
+              <li>Electrolyte drinks (Pedialyte, sports drinks)</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Feminine & Personal Care</h3>
+            <ul class="pill-list">
+              <li>Pads, tampons, liners</li>
+              <li>Feminine wipes</li>
+              <li>Pregnancy tests</li>
+              <li>Condoms</li>
+              <li>Personal hygiene items</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Baby Essentials</h3>
+            <ul class="pill-list">
+              <li>Diapers (various sizes)</li>
+              <li>Baby wipes</li>
+              <li>Baby formula / milk</li>
+              <li>Baby snacks</li>
+              <li>Baby lotion or rash cream</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Snacks & Drinks</h3>
+            <ul class="pill-list">
+              <li>Chips & cookies</li>
+              <li>Energy drinks</li>
+              <li>Sodas & juices</li>
+              <li>Bottled water</li>
+              <li>Ice cream (if nearby)</li>
+              <li>Microwave meals / noodles</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Tech & Chargers</h3>
+            <ul class="pill-list">
+              <li>Phone chargers (Lightning, USB-C, Micro-USB)</li>
+              <li>USB wall plugs</li>
+              <li>Power banks (if available)</li>
+              <li>HDMI cables</li>
+              <li>Basic headphones</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Toiletries & Hygiene</h3>
+            <ul class="pill-list">
+              <li>Toothpaste & toothbrush</li>
+              <li>Deodorant</li>
+              <li>Soap & body wash</li>
+              <li>Shampoo & conditioner</li>
+              <li>Towels & wipes</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Car & Travel Emergencies</h3>
+            <ul class="pill-list">
+              <li>Windshield washer fluid</li>
+              <li>Engine oil (common types)</li>
+              <li>Coolant (where available)</li>
+              <li>Phone charger for car</li>
+              <li>Basic jumper cables (if nearby)</li>
+              <li>Umbrellas & ponchos</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Pet Essentials</h3>
+            <ul class="pill-list">
+              <li>Dog or cat food (small bags/cans)</li>
+              <li>Cat litter (small/medium size)</li>
+              <li>Treats</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Forgotten / Personal Items</h3>
+            <p class="muted">
+              We can also transport items you forgot elsewhere (for example, delivering keys or a wallet from one address to another).
+            </p>
+            <ul class="pill-list">
+              <li>Keys & wallets (from your home to your current location)</li>
+              <li>Small bags or personal items</li>
+              <li>Left items for hotel or Airbnb guests</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAYMENTS & ORDER FORM -->
+      <section id="payments">
+        <h2 class="section-title">Payments & Ordering</h2>
+        <p class="section-sub">
+          We currently accept <span class="highlight">Cash App, Apple Pay, and Zelle</span>. 
+          You will receive payment instructions with your order confirmation.
+        </p>
+
+        <div class="card">
+          <h3>Accepted Payment Methods</h3>
+          <div class="payments-row">
+            <span class="pay-pill">Cash App</span>
+            <span class="pay-pill">Apple Pay</span>
+            <span class="pay-pill">Zelle</span>
+            <span class="pay-pill">Cash (on arrival, selected trips)</span>
+          </div>
+          <p class="muted" style="margin-top: 6px;">
+            Exact payment handles or QR codes will be provided by text after your order details are confirmed.
+          </p>
+        </div>
+
+        <div class="card" style="margin-top: 14px;">
+          <h3>Order Request (Optional Form)</h3>
+          <p class="muted">
+            You can submit this form if your site is connected to email handling. 
+            Otherwise, please call or text <strong>404-203-4469</strong> to order.
+          </p>
+
+          <!-- This form is a placeholder. You need to hook it up to a form handler or email service if you want it to work. -->
+          <form class="order-form" action="#" method="post">
+            <div>
+              <label for="name">Full Name</label>
+              <input id="name" name="name" type="text" placeholder="Your name" />
+            </div>
+            <div>
+              <label for="phone">Phone Number</label>
+              <input id="phone" name="phone" type="tel" placeholder="Your mobile number" />
+            </div>
+            <div>
+              <label for="address">Delivery Address</label>
+              <textarea id="address" name="address" placeholder="Apartment/Hotel name, unit number, gate code if needed"></textarea>
+            </div>
+            <div>
+              <label for="items">Items Needed (be as specific as possible)</label>
+              <textarea id="items" name="items" placeholder="Example: Tylenol Extra Strength 24ct, iPhone charger (Lightning), bottled water, size 3 diapers..."></textarea>
+            </div>
+            <div>
+              <label for="payment">Preferred Payment Method</label>
+              <select id="payment" name="payment">
+                <option value="">Select one</option>
+                <option value="cashapp">Cash App</option>
+                <option value="applepay">Apple Pay</option>
+                <option value="zelle">Zelle</option>
+                <option value="cash">Cash on arrival (where available)</option>
+              </select>
+            </div>
+            <button type="submit">Submit Request (or Call 404-203-4469)</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- REVIEWS -->
+      <section id="reviews">
+        <h2 class="section-title">Leave a Google Review</h2>
+        <p class="section-sub">
+          After your order has been fulfilled, we’d love to hear about your experience.
+          Your feedback helps us improve and helps other late-night customers find us.
+        </p>
+
+        <div class="card">
+          <p class="muted">
+            Tap the button below to leave a review on Google:
+          </p>
+          <p style="margin-top: 10px;">
+            <!-- Replace the href with your actual Google review link once your Business Profile is live -->
+            <a class="call-cta" href="https://search.google.com/local/writereview?placeid=YOUR_PLACE_ID_HERE" target="_blank" rel="noopener noreferrer">
+              Leave a Google Review
+            </a>
+          </p>
+          <p class="muted" style="margin-top: 10px;">
+            Once your Google Business Profile is set up, replace <code>YOUR_PLACE_ID_HERE</code> in the link with your real Place ID so customers go straight to your review page.
+          </p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div>© <span id="year"></span> Midnight Assist Co. All rights reserved.</div>
+    <div class="thanks">
+      Thank you for choosing Midnight Assist Co. for your late-night essentials in Atlanta.
+    </div>
+    <div class="review-link">
+      After your order, please consider leaving us a review on Google to support our small business.
+    </div>
+  </footer>
+
+  <script>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
